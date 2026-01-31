@@ -60,7 +60,7 @@ export default function Signup({ role, onBack, className }: SignupProps) {
           email,
           password,
           name: email.split("@")[0] || "User",
-          callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/problems`,
+          callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/dashboard`,
           role,
           country,
           currency: "$",
@@ -89,7 +89,7 @@ export default function Signup({ role, onBack, className }: SignupProps) {
       setIsGoogleLoading(true);
       await authClient.signIn.social({
         provider: "google",
-        callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/problems`,
+        callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/dashboard`,
       });
       toast.success("Redirecting to Google…");
     } catch (error) {

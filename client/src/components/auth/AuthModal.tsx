@@ -45,7 +45,7 @@ export default function AuthModal({
       setLoading(true);
       await authClient.signIn.social({
         provider: "google" as const,
-        callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/problems`,
+        callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/dashboard`,
       });
       toast.success("Signed in successfully");
     } catch (error) {
@@ -63,7 +63,7 @@ export default function AuthModal({
           email,
           password,
           name: email.split("@")[0], // derive name from email
-          callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/problems`,
+          callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/dashboard`,
         },
         {
           onRequest: () => {
@@ -93,7 +93,7 @@ export default function AuthModal({
         {
           email,
           password,
-          callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/problems`,
+          callbackURL: `${import.meta.env.VITE_FRONTEND_DEV_URL}/dashboard`,
         },
         {
           onRequest: () => {

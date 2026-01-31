@@ -15,7 +15,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
-const callbackURL = `${import.meta.env.VITE_FRONTEND_DEV_URL}/problems`;
+const callbackURL = `${import.meta.env.VITE_FRONTEND_DEV_URL}/dashboard`;
 
 export default function Login() {
   const [email, setEmail] = useState("");
