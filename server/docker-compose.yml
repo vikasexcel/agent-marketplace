@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: agent-marketplace-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: agent_marketplace
+      POSTGRES_USER: agent_admin
+      POSTGRES_PASSWORD: agent_admin_password
+
+    ports:
+      - "5440:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U agent_admin -d agent_marketplace"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
