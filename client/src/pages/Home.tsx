@@ -1,4 +1,6 @@
+import MarketplaceHome from "@/components/ui/marketplaceHome";
+
 export default function Home() {
-    return <h3>🏠 Welcome to Home</h3>;
+    return <MarketplaceHome />;
   }
   
