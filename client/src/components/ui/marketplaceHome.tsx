@@ -2,9 +2,11 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ShoppingBag, Store, ArrowRight, Sparkles } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import Signup from './Signup'
 
 export default function MarketplaceHome() {
   const [selected, setSelected] = useState<'buyer' | 'seller' | null>(null)
+  const [showSignup, setShowSignup] = useState(false)
 
   const roles = [
     {
@@ -41,6 +43,13 @@ export default function MarketplaceHome() {
 
       <main className="relative flex-1 flex items-center justify-center px-6 py-6 sm:py-8">
         <div className="w-full max-w-2xl">
+          {showSignup && selected ? (
+            <Signup
+              role={selected}
+              onBack={() => setShowSignup(false)}
+            />
+          ) : (
+            <>
           {/* Badge */}
           <div className="flex justify-center mb-3">
             <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted/50 px-3 py-1 text-xs font-medium text-muted-foreground tracking-wide">
@@ -127,6 +136,7 @@ export default function MarketplaceHome() {
             <button
               type="button"
               disabled={!selected}
+              onClick={() => setShowSignup(true)}
               className={cn(
                 'inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-full font-medium text-sm transition-all duration-300',
                 'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background',
@@ -149,6 +159,8 @@ export default function MarketplaceHome() {
               </Link>
             </p>
           </div>
+            </>
+          )}
         </div>
       </main>
     </div>

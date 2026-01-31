@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import MainLayout from "./layouts/MainLayout";
 // import DashboardLayout from "./layouts/DashboardLayout";
 import Home from "@/pages/Home";
+import Login from "@/pages/Login";
 import ProblemsPage from "./pages/ProblemsPage";
 // import Dashboard from "./pages/Dashboard";
 // import Profile from "./pages/Profile";
@@ -9,24 +10,16 @@ import ProblemsPage from "./pages/ProblemsPage";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout />, // ✅ outer layout
+    element: <MainLayout />,
     children: [
       { index: true, element: <Home /> },
       {
-        path:"problems",
-        element:<ProblemsPage/>
-      }
-      // for later use
-      // {
-      //   path: "dashboard",
-      //   element: <DashboardLayout />, // ✅ nested layout
-      //   children: [
-      //     { index: true, element: <Dashboard /> },
-      //     { path: "profile", element: <Profile /> },
-      //   ],
-      // },
+        path: "problems",
+        element: <ProblemsPage />,
+      },
     ],
   },
+  { path: "/login", element: <Login /> },
 ]);
 
 export default function App() {

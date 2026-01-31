@@ -22,6 +22,10 @@ model User {
   name                String
   emailVerified       Boolean         @default(false)
   image               String?
+  role                String?         // "buyer" | "seller"
+  country             String?
+  currency            String?         @default("$")
+  language            String?         @default("en")
   sessions            Session[]
   accounts            Account[]
   hostSessions        SessionSchema[] @relation("HostSessions")
